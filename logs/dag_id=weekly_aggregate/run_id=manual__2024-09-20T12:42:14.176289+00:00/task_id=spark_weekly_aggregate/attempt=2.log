@@ -1,0 +1,35 @@
+[2024-09-20T12:47:17.133+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: weekly_aggregate.spark_weekly_aggregate manual__2024-09-20T12:42:14.176289+00:00 [queued]>
+[2024-09-20T12:47:17.147+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: weekly_aggregate.spark_weekly_aggregate manual__2024-09-20T12:42:14.176289+00:00 [queued]>
+[2024-09-20T12:47:17.148+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-20T12:47:17.148+0000] {taskinstance.py:1280} INFO - Starting attempt 2 of 2
+[2024-09-20T12:47:17.149+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-20T12:47:17.166+0000] {taskinstance.py:1300} INFO - Executing <Task(SparkSubmitOperator): spark_weekly_aggregate> on 2024-09-20 12:42:14.176289+00:00
+[2024-09-20T12:47:17.172+0000] {standard_task_runner.py:55} INFO - Started process 426 to run task
+[2024-09-20T12:47:17.177+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'weekly_aggregate', 'spark_weekly_aggregate', 'manual__2024-09-20T12:42:14.176289+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/weekly_aggregate_dag.py', '--cfg-path', '/tmp/tmpkh4jz8em']
+[2024-09-20T12:47:17.179+0000] {standard_task_runner.py:83} INFO - Job 4: Subtask spark_weekly_aggregate
+[2024-09-20T12:47:17.197+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/***/settings.py:249 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-09-20T12:47:17.264+0000] {task_command.py:388} INFO - Running <TaskInstance: weekly_aggregate.spark_weekly_aggregate manual__2024-09-20T12:42:14.176289+00:00 [running]> on host ae946b97fe07
+[2024-09-20T12:47:17.351+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=weekly_aggregate
+AIRFLOW_CTX_TASK_ID=spark_weekly_aggregate
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-20T12:42:14.176289+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-09-20T12:42:14.176289+00:00
+[2024-09-20T12:47:17.365+0000] {base.py:73} INFO - Using connection ID 'spark_default' for task execution.
+[2024-09-20T12:47:17.377+0000] {spark_submit.py:339} INFO - Spark-Submit cmd: spark-submit --master yarn --name spark_weekly_aggregate --verbose --queue root.default /opt/***/dags/spark_aggregate.py 2024-09-20
+[2024-09-20T12:47:17.513+0000] {spark_submit.py:490} INFO - /home/***/.local/lib/python3.7/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+[2024-09-20T12:47:17.514+0000] {spark_submit.py:490} INFO - JAVA_HOME is not set
+[2024-09-20T12:47:17.528+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 157, in execute
+    self._hook.submit(self._application)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 422, in submit
+    f"Cannot execute: {self._mask_cmd(spark_submit_cmd)}. Error code is: {returncode}."
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master yarn --name spark_weekly_aggregate --verbose --queue root.default /opt/***/dags/spark_aggregate.py 2024-09-20. Error code is: 1.
+[2024-09-20T12:47:17.532+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=weekly_aggregate, task_id=spark_weekly_aggregate, execution_date=20240920T124214, start_date=20240920T124717, end_date=20240920T124717
+[2024-09-20T12:47:17.547+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 4 for task spark_weekly_aggregate (Cannot execute: spark-submit --master yarn --name spark_weekly_aggregate --verbose --queue root.default /opt/***/dags/spark_aggregate.py 2024-09-20. Error code is: 1.; 426)
+[2024-09-20T12:47:17.562+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2024-09-20T12:47:17.580+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

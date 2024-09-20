@@ -1,0 +1,82 @@
+[2024-09-20T12:47:17.133+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: weekly_aggregate.spark_weekly_aggregate scheduled__2024-09-19T07:00:00+00:00 [queued]>
+[2024-09-20T12:47:17.148+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: weekly_aggregate.spark_weekly_aggregate scheduled__2024-09-19T07:00:00+00:00 [queued]>
+[2024-09-20T12:47:17.148+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-20T12:47:17.148+0000] {taskinstance.py:1280} INFO - Starting attempt 2 of 2
+[2024-09-20T12:47:17.149+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-20T12:47:17.166+0000] {taskinstance.py:1300} INFO - Executing <Task(SparkSubmitOperator): spark_weekly_aggregate> on 2024-09-19 07:00:00+00:00
+[2024-09-20T12:47:17.172+0000] {standard_task_runner.py:55} INFO - Started process 425 to run task
+[2024-09-20T12:47:17.176+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'weekly_aggregate', 'spark_weekly_aggregate', 'scheduled__2024-09-19T07:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/weekly_aggregate_dag.py', '--cfg-path', '/tmp/tmp29dq02ox']
+[2024-09-20T12:47:17.179+0000] {standard_task_runner.py:83} INFO - Job 5: Subtask spark_weekly_aggregate
+[2024-09-20T12:47:17.197+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/***/settings.py:249 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-09-20T12:47:17.228+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/sqlalchemy.py:124 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-09-20T12:47:17.271+0000] {task_command.py:388} INFO - Running <TaskInstance: weekly_aggregate.spark_weekly_aggregate scheduled__2024-09-19T07:00:00+00:00 [running]> on host ae946b97fe07
+[2024-09-20T12:47:17.359+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=weekly_aggregate
+AIRFLOW_CTX_TASK_ID=spark_weekly_aggregate
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-19T07:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-09-19T07:00:00+00:00
+[2024-09-20T12:47:17.371+0000] {base.py:73} INFO - Using connection ID 'spark_default' for task execution.
+[2024-09-20T12:47:17.381+0000] {spark_submit.py:339} INFO - Spark-Submit cmd: spark-submit --master yarn --name spark_weekly_aggregate --verbose --queue root.default /opt/***/dags/spark_aggregate.py 2024-09-19
+[2024-09-20T12:47:17.512+0000] {spark_submit.py:490} INFO - /home/***/.local/lib/python3.7/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+[2024-09-20T12:47:17.513+0000] {spark_submit.py:490} INFO - JAVA_HOME is not set
+[2024-09-20T12:47:17.526+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 157, in execute
+    self._hook.submit(self._application)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 422, in submit
+    f"Cannot execute: {self._mask_cmd(spark_submit_cmd)}. Error code is: {returncode}."
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master yarn --name spark_weekly_aggregate --verbose --queue root.default /opt/***/dags/spark_aggregate.py 2024-09-19. Error code is: 1.
+[2024-09-20T12:47:17.531+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=weekly_aggregate, task_id=spark_weekly_aggregate, execution_date=20240919T070000, start_date=20240920T124717, end_date=20240920T124717
+[2024-09-20T12:47:17.547+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 5 for task spark_weekly_aggregate (Cannot execute: spark-submit --master yarn --name spark_weekly_aggregate --verbose --queue root.default /opt/***/dags/spark_aggregate.py 2024-09-19. Error code is: 1.; 425)
+[2024-09-20T12:47:17.560+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2024-09-20T12:47:17.579+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-20T13:36:46.087+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: weekly_aggregate.spark_weekly_aggregate scheduled__2024-09-19T07:00:00+00:00 [queued]>
+[2024-09-20T13:36:46.107+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: weekly_aggregate.spark_weekly_aggregate scheduled__2024-09-19T07:00:00+00:00 [queued]>
+[2024-09-20T13:36:46.107+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-20T13:36:46.108+0000] {taskinstance.py:1280} INFO - Starting attempt 2 of 2
+[2024-09-20T13:36:46.108+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-20T13:36:46.137+0000] {taskinstance.py:1300} INFO - Executing <Task(SparkSubmitOperator): spark_weekly_aggregate> on 2024-09-19 07:00:00+00:00
+[2024-09-20T13:36:46.143+0000] {standard_task_runner.py:55} INFO - Started process 612 to run task
+[2024-09-20T13:36:46.153+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'weekly_aggregate', 'spark_weekly_aggregate', 'scheduled__2024-09-19T07:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/weekly_aggregate_dag.py', '--cfg-path', '/tmp/tmpegbxhghs']
+[2024-09-20T13:36:46.157+0000] {standard_task_runner.py:83} INFO - Job 5: Subtask spark_weekly_aggregate
+[2024-09-20T13:36:46.202+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/***/settings.py:249 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-09-20T13:36:46.260+0000] {logging_mixin.py:137} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/sqlalchemy.py:124 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-09-20T13:36:46.326+0000] {task_command.py:388} INFO - Running <TaskInstance: weekly_aggregate.spark_weekly_aggregate scheduled__2024-09-19T07:00:00+00:00 [running]> on host 6320e57075aa
+[2024-09-20T13:36:46.492+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=weekly_aggregate
+AIRFLOW_CTX_TASK_ID=spark_weekly_aggregate
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-19T07:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-09-19T07:00:00+00:00
+[2024-09-20T13:36:46.515+0000] {base.py:73} INFO - Using connection ID 'spark_default' for task execution.
+[2024-09-20T13:36:46.542+0000] {spark_submit.py:339} INFO - Spark-Submit cmd: spark-submit --master yarn --conf spark.master=local --name spark_weekly_aggregate --verbose --queue root.default /opt/***/dags/spark_aggregate.py
+[2024-09-20T13:36:52.226+0000] {spark_submit.py:490} INFO - Using properties file: null
+[2024-09-20T13:36:52.517+0000] {spark_submit.py:490} INFO - Exception in thread "main" org.apache.spark.SparkException: When running with master 'yarn' either HADOOP_CONF_DIR or YARN_CONF_DIR must be set in the environment.
+[2024-09-20T13:36:52.518+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmitArguments.error(SparkSubmitArguments.scala:650)
+[2024-09-20T13:36:52.519+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmitArguments.validateSubmitArguments(SparkSubmitArguments.scala:281)
+[2024-09-20T13:36:52.520+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmitArguments.validateArguments(SparkSubmitArguments.scala:237)
+[2024-09-20T13:36:52.521+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmitArguments.<init>(SparkSubmitArguments.scala:122)
+[2024-09-20T13:36:52.522+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmit$$anon$2$$anon$3.<init>(SparkSubmit.scala:1094)
+[2024-09-20T13:36:52.532+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmit$$anon$2.parseArguments(SparkSubmit.scala:1094)
+[2024-09-20T13:36:52.533+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:86)
+[2024-09-20T13:36:52.534+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1111)
+[2024-09-20T13:36:52.535+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1120)
+[2024-09-20T13:36:52.536+0000] {spark_submit.py:490} INFO - at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+[2024-09-20T13:36:52.599+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 157, in execute
+    self._hook.submit(self._application)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 422, in submit
+    f"Cannot execute: {self._mask_cmd(spark_submit_cmd)}. Error code is: {returncode}."
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master yarn --conf spark.master=local --name spark_weekly_aggregate --verbose --queue root.default /opt/***/dags/spark_aggregate.py. Error code is: 1.
+[2024-09-20T13:36:52.610+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=weekly_aggregate, task_id=spark_weekly_aggregate, execution_date=20240919T070000, start_date=20240920T133646, end_date=20240920T133652
+[2024-09-20T13:36:52.644+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 5 for task spark_weekly_aggregate (Cannot execute: spark-submit --master yarn --conf spark.master=local --name spark_weekly_aggregate --verbose --queue root.default /opt/***/dags/spark_aggregate.py. Error code is: 1.; 612)
+[2024-09-20T13:36:52.662+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2024-09-20T13:36:52.698+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

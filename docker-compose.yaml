@@ -1,0 +1,51 @@
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+  redis:
+    image: redis:latest
+  airflow:
+    image: apache/airflow:2.5.1
+    depends_on:
+      - postgres
+      - redis
+      - spark
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__FERNET_KEY=7Kwe6MhfgCI-l249h6HzzQN8AX44wFUBgrnehXS1gPs=
+      - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=True
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - _AIRFLOW_WWW_USER_CREATE=true
+      - _AIRFLOW_WWW_USER_USERNAME=admin
+      - _AIRFLOW_WWW_USER_PASSWORD=password
+      - _AIRFLOW_WWW_USER_FIRSTNAME=Admin
+      - _AIRFLOW_WWW_USER_LASTNAME=User
+      - _AIRFLOW_WWW_USER_ROLE=Admin
+      - _AIRFLOW_WWW_USER_EMAIL=admin@example.com
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./input:/opt/airflow/input
+      - ./output:/opt/airflow/output
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    command: [ "airflow", "webserver" ]
+    # command: [ "airflow", "db", "init" ]
+  spark:
+    image: bitnami/spark:3
+    environment:
+      - SPARK_MODE=master # Устанавливаем режим master
+    volumes:
+      - ./input:/input
+      - ./output:/output
+    ports:
+      - "7077:7077" # Порт для Spark master
+      - "8081:8080" # Порт для интерфейса Spark (должен отличаться от порта Airflow)
